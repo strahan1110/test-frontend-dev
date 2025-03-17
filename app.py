@@ -18,14 +18,14 @@ modulos_data = [
         "clases": [
             {
                 "titulo": "Introducción a HTML",
-                "video": "https://www.example.com/video_html.mp4",
+                "video": "https://www.youtube.com/watch?v=qTol0C1Vy6Y",
                 "descripcion": "Aprende los fundamentos de HTML.",
                 "duracion": "30 minutos",
-                "completado": False,
+                "completado": True,
             },
             {
                 "titulo": "CSS Básico",
-                "video": "https://www.example.com/video_css.mp4",
+                "video": "https://www.youtube.com/watch?v=0t-kuWmBcM4",
                 "descripcion": "Introducción al diseño web con CSS.",
                 "duracion": "45 minutos",
                 "completado": True,
@@ -38,17 +38,17 @@ modulos_data = [
         "clases": [
             {
                 "titulo": "Sintaxis Básica de JavaScript",
-                "video": "https://www.example.com/video_js_sintaxis.mp4",
+                "video": "https://www.youtube.com/watch?v=Op5LkZiAn2E",
                 "descripcion": "Aprende las bases de la sintaxis de JavaScript.",
                 "duracion": "1 hora",
                 "completado": False,
             },
             {
                 "titulo": "Manipulación del DOM",
-                "video": "https://www.example.com/video_dom.mp4",
+                "video": "https://www.youtube.com/watch?v=i8yxx6V9UdM",
                 "descripcion": "Cómo interactuar con el DOM utilizando JavaScript.",
                 "duracion": "1 hora",
-                "completado": False,
+                "completado": True,
             },
         ],
     },
@@ -58,14 +58,14 @@ modulos_data = [
         "clases": [
             {
                 "titulo": "Introducción a React",
-                "video": "https://www.example.com/video_react.mp4",
+                "video": "https://www.youtube.com/watch?v=Op5LkZiAn2E",
                 "descripcion": "Aprende los fundamentos de React, un framework para desarrollar aplicaciones web interactivas.",
                 "duracion": "1 hora",
                 "completado": False,
             },
             {
                 "titulo": "Introducción a Vue",
-                "video": "https://www.example.com/video_vue.mp4",
+                "video": "https://www.youtube.com/watch?v=i8yxx6V9UdM",
                 "descripcion": "Conoce Vue.js, un framework progresivo para construir interfaces de usuario.",
                 "duracion": "1 hora",
                 "completado": False,
