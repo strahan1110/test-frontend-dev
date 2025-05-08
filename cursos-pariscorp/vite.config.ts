@@ -27,5 +27,8 @@ export default defineConfig({
     },
   },
   assetsInclude: ["**/*.woff2", "**/*.woff", "**/*.ttf", "**/*.otf"],
+  optimizeDeps: {
+    include: ["react", "react-dom"]
+  }
 });
 
