@@ -13,6 +13,19 @@ export default defineConfig({
     outDir: "dist",
     assetsDir: "assets",
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+      },
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        manualChunks: {
+          vendor: ['react', 'react-dom']
+        }
+      }
+    },
   },
   plugins: [react()],
   resolve: {
@@ -20,4 +33,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  assetsInclude: ["**/*.woff2", "**/*.woff", "**/*.ttf", "**/*.otf"],
+  optimizeDeps: {
+    include: ["react", "react-dom"]
+  }
 });
