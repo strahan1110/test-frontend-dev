@@ -13,6 +13,11 @@ export default defineConfig({
     outDir: "dist",
     assetsDir: "assets",
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: "index.html",
+      },
+    },
   },
   plugins: [react()],
   resolve: {
@@ -20,4 +25,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  assetsInclude: ["**/*.woff2", "**/*.woff", "**/*.ttf", "**/*.otf"],
 });
+
