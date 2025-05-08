@@ -3,6 +3,5 @@
   src: url("/fonts/Gilroy-Regular.ttf") format("truetype");
 }
 body {
-  @apply bg-[#f7f9fc];
   font-family: "Gilroy", sans-serif;
 }

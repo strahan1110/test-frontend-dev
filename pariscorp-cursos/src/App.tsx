@@ -1,40 +1,48 @@
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Modulos from "./pages/Modulos";
-import Login from "./pages/Login";
-import { useEffect, useState } from "react";
 
-function AppWrapper() {
-  const location = useLocation();
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Modulos from "./pages/Modulos";
+
+const queryClient = new QueryClient();
+
+// Componente para rutas protegidas
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const isAuthenticated = () => {
-    const token = localStorage.getItem("token");
-    return token && token.length > 30; 
+    return !!localStorage.getItem('auth_token');
   };
 
-console.log("Authentication status:", localStorage.getItem("token"));
+  if (!isAuthenticated()) {
+    return <Navigate to="/login" replace />;
+  }
 
-  const showSidebar = location.pathname !== "/login";
+  return children;
+};
 
-  return (
-    <div className="flex">
-      {showSidebar && <Sidebar />}
-      <main className={showSidebar ? "ml-64 w-full min-h-screen p-6" : "w-full min-h-screen p-6"}>
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
         <Routes>
-          <Route
-            path="/modulos"
-            element={isAuthenticated ? <Modulos /> : <Navigate to="/login" />}
+          <Route path="/" element={<Login />} />
+          <Route 
+            path="/modulos" 
+            element={
+              <ProtectedRoute>
+                <Modulos />
+              </ProtectedRoute>
+            } 
           />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<Navigate to="/modulos" />} />
+          <Route path="*" element={<Login />} />
         </Routes>
-      </main>
-    </div>
-  );
-}
-
-function App() {
-  return <AppWrapper />;
-}
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
-

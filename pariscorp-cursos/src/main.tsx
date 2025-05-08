@@ -1,15 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom';
-import App from './App.jsx'
-import './index.css'
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
+'use client';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  
-    <BrowserRouter>
-      <App />
-      <ToastContainer />
-    </BrowserRouter>
+import { createRoot } from 'react-dom/client';
+import React from 'react';
+import App from './App.tsx';
+import './index.css';
+
+// Configure environment variables
+if (!import.meta.env.VITE_API_URL) {
+  throw new Error('VITE_API_URL environment variable is not set');
+}
+
+const container = document.getElementById('root');
+if (!container) {
+  throw new Error('Failed to find the root element');
+}
+
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
