@@ -3,14 +3,17 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"  // Vite's default output folder
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/index.html",
-       "status": 200 
+      "status": 200  // Required for SPAs
     }
   ]
 }
