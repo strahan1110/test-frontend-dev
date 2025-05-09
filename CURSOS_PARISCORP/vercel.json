@@ -5,7 +5,7 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"  // Vite's default output folder
+        "distDir": "dist" 
       }
     }
   ],
@@ -13,7 +13,7 @@
     {
       "src": "/(.*)",
       "dest": "/index.html",
-      "status": 200  // Required for SPAs
+      "status": 200 
     }
   ]
 }
